@@ -6,4 +6,4 @@ API_VERSION=API_VERSION_V1
 
 bp = Blueprint('api', __name__)
 
-from app.api import shows
+from app.api import channels, videos
