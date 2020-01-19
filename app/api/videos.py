@@ -1,4 +1,4 @@
-from flask_restful import Api, Resource, abort
+from flask_restful import Api, Resource, abort, reqparse
 from app.utils import dict_helper
 from app.models import Video
 from app.api import bp
@@ -19,17 +19,26 @@ def get_videos(id=None):
         videos = Video.query.all()
         return [dict_helper(video, columns) for video in videos]
 
-class VideosAPI(Resource):
+class VideoListAPI(Resource):
     def get(self):
         return {
             'videos': get_videos()
             }
+    
+    def post(self):
+        pass
 
 class VideoAPI(Resource):
     def get(self, id):
         return {
             'video': get_videos(id=id)
             }
+    
+    def put(self, id):
+        pass
 
-api.add_resource(VideosAPI, '/videos')
-api.add_resource(VideoAPI, '/videos/<int:id>')
+    def delete(self, id):
+        pass
+
+api.add_resource(VideoListAPI, '/videos')
+api.add_resource(VideoAPI, '/videos/<int:id>', endpoint='video')
