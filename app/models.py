@@ -23,6 +23,8 @@ class Video(db.Model):
     title = db.Column(db.String(1000))
     duration = db.Column(db.Integer)
     published_date = db.Column(db.DateTime, index=True)
+    ydl_options = db.Column(db.String(128))
+    size  = db.Column(db.String(128))
 
     def __repr__(self):
         return '<Video {}>'.format(self.id)

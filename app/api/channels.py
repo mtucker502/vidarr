@@ -1,5 +1,4 @@
 from flask_restful import Api, Resource, abort, reqparse, fields, marshal
-from app.utils import dict_helper
 from app import db
 from app.models import Channel
 from app.api import bp
