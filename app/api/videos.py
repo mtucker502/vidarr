@@ -12,7 +12,8 @@ video_fields = {
     'duration': fields.String,
     'ydl_options': fields.String,
     'monitor': fields.Boolean,
-    'file': fields.String,
+    'filename': fields.String,
+    'exists': fields.Boolean,
     'uri': fields.Url('api.video')
 }
 

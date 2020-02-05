@@ -93,6 +93,7 @@ class ChannelAPI(Resource):
         if channel is not None:
             db.session.delete(channel)
             db.session.commit()
+            #TODO: Cancel all tasks related to channel
             return {'result': True}, 204
         else:
             abort(404, error="Invalid channel ID")
