@@ -17,4 +17,10 @@ task_fields = {
 
 bp = Blueprint('api', __name__)
 
-from app.api import channels, videos, diskspace, tasks
+from app.api import (
+    channels,
+    videos,
+    diskspace,
+    tasks,
+    video_files
+)
