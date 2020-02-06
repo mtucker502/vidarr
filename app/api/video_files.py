@@ -1,8 +1,6 @@
-from flask_restful import Api, Resource, abort, reqparse, fields, marshal
+from flask_restful import Resource, abort, reqparse, fields, marshal
 from app import db
 from app.models import VideoFile
-from app.api import bp
-api = Api(bp)
 
 video_file_fields = {
     'id': fields.Integer,
@@ -70,7 +68,3 @@ class VideoFileAPI(Resource):
             return {'result': True}, 204
         else:
             abort(404, error="Invalid video_file ID")
-
-
-api.add_resource(VideoFileListAPI, '/video_files')
-api.add_resource(VideoFileAPI, '/video_files/<int:id>', endpoint='video_file')

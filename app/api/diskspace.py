@@ -1,7 +1,5 @@
-from flask_restful import Api, Resource, abort, reqparse, fields, marshal
+from flask_restful import Resource, abort, reqparse, fields, marshal
 import psutil
-from app.api import bp
-api = Api(bp)
 
 diskspace_fields = {
     'path': fields.Integer,
@@ -33,5 +31,3 @@ class DiskSpaceAPI(Resource):
         return {
             'disks': get_diskspace()
             }
-
-api.add_resource(DiskSpaceAPI, '/diskspace')

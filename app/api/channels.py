@@ -1,8 +1,6 @@
-from flask_restful import Api, Resource, abort, reqparse, fields, marshal
+from flask_restful import Resource, abort, reqparse, fields, marshal
 from app import db
 from app.models import Channel
-from app.api import bp
-api = Api(bp)
 
 channel_fields = {
     'id': fields.Integer,
@@ -97,7 +95,3 @@ class ChannelAPI(Resource):
             return {'result': True}, 204
         else:
             abort(404, error="Invalid channel ID")
-
-
-api.add_resource(ChannelListAPI, '/channels')
-api.add_resource(ChannelAPI, '/channels/<int:id>', endpoint='channel')

@@ -1,11 +1,9 @@
 import json
-from flask_restful import Api, Resource, abort, reqparse, marshal, fields
+from flask_restful import Resource, abort, reqparse, marshal, fields
 from flask import current_app
 from app import db
 from app.models import Task
 from app.tasks import launch_task
-from app.api import bp
-api = Api(bp)
 
 task_fields = {
     'id': fields.String,
@@ -63,6 +61,3 @@ class TaskAPI(Resource):
         return {
             'task': get_tasks(id=id)
             }
-
-api.add_resource(TaskListAPI, '/tasks')
-api.add_resource(TaskAPI, '/tasks/<id>', endpoint='task')
